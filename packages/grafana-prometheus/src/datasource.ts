@@ -640,7 +640,7 @@ export class PrometheusDatasource
 
     const labelFilters: QueryBuilderLabelFilter[] = options.filters.map((f) => ({
       label: f.key,
-      value: f.value,
+      value: prometheusRegularEscape(f.value),
       op: f.operator,
     }));
     const expr = promQueryModeller.renderLabels(labelFilters);
@@ -672,7 +672,7 @@ export class PrometheusDatasource
 
     const labelFilters: QueryBuilderLabelFilter[] = options.filters.map((f) => ({
       label: f.key,
-      value: f.value,
+      value: prometheusRegularEscape(f.value),
       op: f.operator,
     }));
 
